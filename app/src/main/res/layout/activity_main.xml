@@ -11,19 +11,49 @@
         android:layout_width="409dp"
         android:layout_height="323dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="-4dp">
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="4dp">
 
-        <Space
+        <Button
+            android:id="@+id/btn_test"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="148dp"
+            android:text="Button"
+            tools:layout_editor_absoluteX="2dp"
+            tools:layout_editor_absoluteY="185dp" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="56dp"
+            tools:layout_editor_absoluteY="369dp">
+
+            <RadioButton
+                android:id="@+id/radio_btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First Btn"
+                tools:layout_editor_absoluteX="29dp"
+                tools:layout_editor_absoluteY="393dp" />
+
+            <RadioButton
+                android:id="@+id/radio_btn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Second Btn"
+                tools:layout_editor_absoluteX="29dp"
+                tools:layout_editor_absoluteY="438dp" />
+
+            <RadioButton
+                android:id="@+id/radio_btn3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Third Btn"
+                tools:layout_editor_absoluteX="31dp"
+                tools:layout_editor_absoluteY="484dp" />
+        </RadioGroup>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_test"
-        android:layout_width="match_parent"
-        android:layout_height="92dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="320dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
