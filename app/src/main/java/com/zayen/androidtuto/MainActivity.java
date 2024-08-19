@@ -1,6 +1,7 @@
 package com.zayen.androidtuto;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,9 +35,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "Button Clicked");
-                Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
-                intent.putExtra("Name", "Alaeddine");
-                intent.putExtra("Msg", "Intent Test");
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com"));
                 startActivity(intent);
             }
         });
