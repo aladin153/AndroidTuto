@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -33,15 +34,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button btn = (Button) findViewById(R.id.btn_test);
-        EditText firstName = (EditText) findViewById(R.id.first_name);
-        EditText lastName = (EditText) findViewById(R.id.last_name);
-        TextView fullName = (TextView) findViewById(R.id.full_name);
+        CheckBox cb = (CheckBox) findViewById(R.id.checkBox);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (cb.isChecked()) {
+                    Toast.makeText(getApplicationContext(), "Checked", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Not Checked", Toast.LENGTH_LONG).show();
+                }
                 Log.d(TAG, "Button Clicked");
-                String fn = firstName.getText().toString() + " " + lastName.getText().toString();
-                fullName.setText(fn);
             }
         });
     }
