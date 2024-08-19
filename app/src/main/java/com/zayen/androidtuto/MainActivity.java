@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d(TAG, "Button Clicked");
                 Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+                intent.putExtra("Name", "Alaeddine");
+                intent.putExtra("Msg", "Intent Test");
                 startActivity(intent);
             }
         });

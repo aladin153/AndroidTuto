@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,5 +34,11 @@ public class MainActivity2 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        TextView name_tv = (TextView) findViewById(R.id.name_tv);
+        TextView msg_tv = (TextView) findViewById(R.id.msg_tv);
+        Bundle extras = getIntent().getExtras();
+        name_tv.setText(extras.getString("Name"));
+        msg_tv.setText(extras.getString("Msg"));
     }
 }
