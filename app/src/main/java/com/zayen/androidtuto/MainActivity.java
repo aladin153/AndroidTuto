@@ -14,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.SharedPreferences;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,33 +36,38 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button btn = (Button) findViewById(R.id.btn_test);
-        btn.setOnClickListener(new View.OnClickListener() {
+        Button set = (Button) findViewById(R.id.btn_set);
+        Button get = (Button) findViewById(R.id.btn_get);
+        EditText newName = (EditText) findViewById(R.id.new_name);
+        TextView savedName = (TextView) findViewById(R.id.saved_name);
+
+        set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Button Clicked");
-                // Create the object of AlertDialog Builder class
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                // Set the message show for the Alert time
-                builder.setMessage("Do you want to exit ?");
-                // Set Alert Title
-                builder.setTitle("Alert !");
-                // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
-                builder.setCancelable(false);
-                // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
-                builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
-                    // When the user click yes button then app will close
-                    finish();
-                });
-                // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
-                builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
-                    // If user click no then dialog box is canceled.
-                    dialog.cancel();
-                });
-                // Create the Alert dialog
-                AlertDialog alertDialog = builder.create();
-                // Show the Alert Dialog box
-                alertDialog.show();
+                Log.d(TAG, "Set Button Clicked");
+                // Storing data into SharedPreferences
+                SharedPreferences sharedPreferences = getSharedPreferences("SPTest",MODE_PRIVATE);
+                // Creating an Editor object to edit(write to the file)
+                SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                // Storing the key and its value as the data fetched from edittext
+                myEdit.putString("full_name", newName.getText().toString());
+                // Once the changes have been made, we need to commit to apply those changes made,
+                // otherwise, it will throw an error
+                myEdit.commit();
+            }
+        });
+
+        get.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Set Button Clicked");
+                // Retrieving the value using its keys the file name must be same in both saving and retrieving the data
+                SharedPreferences sh = getSharedPreferences("SPTest", MODE_APPEND);
+                // The value will be default as empty string because for the very
+                // first time when the app is opened, there is nothing to show
+                String s1 = sh.getString("full_name", "");
+                // We can then use the data
+                savedName.setText(s1);
             }
         });
     }

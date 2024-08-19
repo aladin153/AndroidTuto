@@ -19,12 +19,32 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/btn_test"
+            android:id="@+id/btn_get"
             android:layout_width="match_parent"
-            android:layout_height="148dp"
-            android:text="Display Alert Dialog"
+            android:layout_height="91dp"
+            android:text="Get Saved Name"
             tools:layout_editor_absoluteX="2dp"
             tools:layout_editor_absoluteY="185dp" />
+
+        <Button
+            android:id="@+id/btn_set"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set New Name" />
+
+        <EditText
+            android:id="@+id/new_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/saved_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
     </LinearLayout>
 
