@@ -14,14 +14,39 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="4dp">
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <Button
             android:id="@+id/btn_test"
             android:layout_width="match_parent"
             android:layout_height="148dp"
-            android:text="Activity 2"
+            android:text="Generate Full Name"
             tools:layout_editor_absoluteX="2dp"
             tools:layout_editor_absoluteY="185dp" />
 
+        <EditText
+            android:id="@+id/first_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="First Name" />
+
+        <EditText
+            android:id="@+id/last_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Last Name" />
+
+        <TextView
+            android:id="@+id/full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Full Name" />
 
 
     </LinearLayout>
