@@ -19,18 +19,12 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/btn_get"
+            android:id="@+id/add_name"
             android:layout_width="match_parent"
             android:layout_height="91dp"
-            android:text="Get Saved Name"
+            android:text="Add New Name"
             tools:layout_editor_absoluteX="2dp"
             tools:layout_editor_absoluteY="185dp" />
-
-        <Button
-            android:id="@+id/btn_set"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Set New Name" />
 
         <EditText
             android:id="@+id/new_name"
@@ -40,11 +34,13 @@
             android:inputType="text"
             android:text="Name" />
 
-        <TextView
-            android:id="@+id/saved_name"
+        <ListView
+            android:id="@+id/names"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:divider="@color/purple_700"
+            android:listSelector="#0f0"
+            android:layout_height="match_parent" />
+
 
     </LinearLayout>
 
