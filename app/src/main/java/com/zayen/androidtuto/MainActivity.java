@@ -62,15 +62,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "Display Text");
                 Toast.makeText(getApplicationContext(), text.getText().toString(), Toast.LENGTH_SHORT).show();
                 if (!started) {
-                    new Thread(new Runnable() {
-                        public void run(){
-                            try {
-                                updateProgressBar(progress);
-                            } catch (InterruptedException e) {
-                                throw new RuntimeException(e);
-                            }
-                        }
-                    }).start();
+                    Intent intent = new Intent(getApplicationContext(), MyService.class);
+                    startService(intent);
                     started = true;
                 }
             }
