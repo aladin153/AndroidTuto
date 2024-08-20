@@ -19,30 +19,34 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/add_name"
+            android:id="@+id/display_text"
             android:layout_width="match_parent"
             android:layout_height="91dp"
-            android:text="Add New Name"
+            android:text="Display Text"
             tools:layout_editor_absoluteX="2dp"
             tools:layout_editor_absoluteY="185dp" />
 
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="440dp" />
+
         <EditText
-            android:id="@+id/new_name"
+            android:id="@+id/text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:text="Name" />
-
-        <ListView
-            android:id="@+id/names"
-            android:layout_width="match_parent"
-            android:divider="@color/purple_700"
-            android:listSelector="#0f0"
-            android:layout_height="match_parent" />
+            android:text="Please enter your text" />
 
 
     </LinearLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

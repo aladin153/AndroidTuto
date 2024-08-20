@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -29,6 +30,14 @@ import java.util.Vector;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "AndroidTraining";
+
+    private void updateProgressBar(ProgressBar progress) throws InterruptedException {
+        for(int i=0; i<=10; i++) {
+            progress.setProgress(i*10);
+            Thread.sleep(5000);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,20 +49,21 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button addName = (Button) findViewById(R.id.add_name);
-        EditText newName = (EditText) findViewById(R.id.new_name);
-        ListView names = (ListView) findViewById(R.id.names);
-        Vector<String> names_vector = new Vector<>();
-        ArrayAdapter<String> arr;
-        arr = new ArrayAdapter<String>(this, androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item, names_vector);
-        names.setAdapter(arr);
+        Button displayText = (Button) findViewById(R.id.display_text);
+        EditText text = (EditText) findViewById(R.id.text);
+        ProgressBar progress = (ProgressBar) findViewById(R.id.progressBar);
 
-        addName.setOnClickListener(new View.OnClickListener() {
+
+        displayText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Adding New name");
-                names_vector.add(newName.getText().toString());
-                names.setAdapter(arr);
+                Log.d(TAG, "Display Text");
+                Toast.makeText(getApplicationContext(), text.getText().toString(), Toast.LENGTH_SHORT).show();
+                try {
+                    updateProgressBar(progress);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
