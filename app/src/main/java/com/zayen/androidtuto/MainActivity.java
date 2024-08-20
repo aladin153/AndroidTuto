@@ -30,10 +30,12 @@ import java.util.Vector;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "AndroidTraining";
+    private boolean started = false;
 
     private void updateProgressBar(ProgressBar progress) throws InterruptedException {
         for(int i=0; i<=10; i++) {
             progress.setProgress(i*10);
+            Log.d(TAG, "New progress value = " + i);
             Thread.sleep(5000);
         }
     }
@@ -59,10 +61,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d(TAG, "Display Text");
                 Toast.makeText(getApplicationContext(), text.getText().toString(), Toast.LENGTH_SHORT).show();
-                try {
-                    updateProgressBar(progress);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+                if (!started) {
+                    new Thread(new Runnable() {
+                        public void run(){
+                            try {
+                                updateProgressBar(progress);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                    }).start();
+                    started = true;
                 }
             }
         });
