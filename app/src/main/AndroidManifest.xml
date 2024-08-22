@@ -15,7 +15,8 @@
         <service
             android:name=".MyService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true">
+        </service>
 
         <activity
             android:name=".MainActivity"
@@ -26,6 +27,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:enabled="true" android:name=".AirplaneModeChangeReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+                <action android:name="android.intent.action.ACTION_AIRPLANE_MODE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

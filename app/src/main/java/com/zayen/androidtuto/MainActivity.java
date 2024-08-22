@@ -3,6 +3,7 @@ package com.zayen.androidtuto;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        IntentFilter intentFilter = new IntentFilter("android.intent.action.AIRPLANE_MODE");
+        AirplaneModeChangeReceiver receiver = new AirplaneModeChangeReceiver();
+        registerReceiver(receiver, intentFilter);
+
 
         Button displayText = (Button) findViewById(R.id.display_text);
         EditText text = (EditText) findViewById(R.id.text);
