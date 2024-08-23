@@ -19,29 +19,12 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/display_text"
+            android:id="@+id/camera"
             android:layout_width="match_parent"
             android:layout_height="91dp"
-            android:text="Display Text"
+            android:text="Camera"
             tools:layout_editor_absoluteX="2dp"
             tools:layout_editor_absoluteY="185dp" />
-
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="57dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="440dp" />
-
-        <EditText
-            android:id="@+id/text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Please enter your text" />
 
 
     </LinearLayout>
